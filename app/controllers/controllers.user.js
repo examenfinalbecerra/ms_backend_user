@@ -61,7 +61,7 @@ export const modificarUsuario = async(req, res)=>{
 export const eliminarUsuario = async(req, res)=>{
     const id = req.body.id;
     try {
-        const respueta = await pool.query(`CALL  sp_EliminarUsuario(${id});`);
+        const respueta = await pool.query(`CALL sp_EliminarUsuario(${id});`);
         if (respueta[0].affectedRows == 1){
             success(req, res, 201,"Usuario eliminado:");
         }else{
